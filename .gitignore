@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.DS_Store
+dist/
+build/
+checkpoints/latest_model.pt
+!checkpoints/best_model.pt
+!assets/*.png

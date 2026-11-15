@@ -1,0 +1,34 @@
+[project]
+name = "tetris-rl"
+version = "0.1.0"
+description = "Human-playable Guideline Tetris and Apple Silicon (MPS) Reinforcement Learning agent"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "torch>=2.5",
+    "pygame-ce>=2.5",
+    "matplotlib>=3.9",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+tetris-play = "play:main"
+tetris-train = "train:main"
+tetris-eval = "evaluate:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tetris"]
+only-include = ["tetris", "play.py", "train.py", "evaluate.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
